@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0b1022" id="metaThemeColor" />
+<title>Dedicapp — Páginas que ENAMORAN</title>
+
+<!-- SEO / Compartir -->
+<meta name="description" content="Páginas dedicadas que enamoran: mensaje, fotos y música. Entrega rápida por WhatsApp. Planes desde $99 MXN." />
+<link rel="icon" href="/favicon.png" type="image/png" />
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dedicapp — Páginas que ENAMORAN">
+<meta property="og:description" content="Detalles digitales con mensaje, fotos y música. Desde $99 MXN. Listo para Instagram.">
+<meta property="og:image" content="https://tu-dominio.com/og-cover.jpg">
+<meta property="og:url" content="https://tu-dominio.com/">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fuentes -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg1:#070915; --bg2:#0b1022; --bg3:#0c1533;
+    --glass: rgba(255,255,255,.10); --stroke: rgba(255,255,255,.22);
+    --text:#eef3ff; --muted:#a9b3d6;
+    --neon1:#8b5cf6; --neon2:#22d3ee; --neon3:#f472b6; --neon4:#22c55e;
+    --star:#ffd166;
+    --shadow: 0 12px 50px rgba(0,0,0,.35);
+    --themeColor:#0b1022;
+    --radius:18px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{
+    margin:0; font-family:'Poppins',system-ui,Arial,sans-serif; color:var(--text);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, #102 5%, transparent 60%),
+      radial-gradient(1000px 600px at -10% 10%, #013 5%, transparent 60%),
+      linear-gradient(120deg,var(--bg1),var(--bg2) 40%,var(--bg3));
+    -webkit-text-size-adjust:100%; scroll-behavior:smooth;
+  }
+  a{color:inherit; text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{width:92%;max-width:1100px;margin:0 auto}
+
+  /* Fondo animado con ondas */
+  .waves{position:fixed; inset:0; z-index:-3; pointer-events:none; overflow:hidden}
+  .waves::before, .waves::after{
+    content:""; position:absolute; width:140vw; height:140vw; left:-20vw; top:-40vw; border-radius:45%;
+    background: radial-gradient(circle at 50% 50%, rgba(139,92,246,.08), transparent 55%);
+    animation:spin 36s linear infinite;
+  }
+  .waves::after{
+    top:auto; bottom:-60vw; left:-10vw;
+    background: radial-gradient(circle at 50% 50%, rgba(34,211,238,.08), transparent 55%);
+    animation-duration: 48s;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg)} }
+
+  .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(5,8,18,.55);border-bottom:1px solid #151d39}
+  .nav__wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+  .menu a{opacity:.9;margin-left:12px}
+  .menu .btn{margin-left:8px}
+
+  .btn{display:inline-block;border:none;border-radius:14px;padding:12px 18px;font-weight:800;cursor:pointer;transition:transform .15s ease, box-shadow .2s}
+  .btn--neon{color:#fff;background:linear-gradient(135deg,var(--neon3),var(--neon1));box-shadow:0 8px 30px rgba(139,92,246,.35), inset 0 -2px 0 rgba(255,255,255,.15)}
+  .btn--neon:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(139,92,246,.45)}
+  .btn--ghost{background:transparent;border:1px solid var(--stroke);color:var(--text)}
+  .btn--outline{background:transparent; color:var(--text); position:relative; border-radius:14px; padding:12px 18px;}
+  .btn--outline::before{content:""; position:absolute; inset:0; border-radius:14px; padding:1px;
+    background:linear-gradient(90deg,var(--neon2),var(--neon1),var(--neon3)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  .btn:active{ transform:translateY(0) scale(.98) }
+  .magnet{transition:transform .15s ease}
+  .magnet:hover{transform:translateY(-2px) scale(1.01)}
+
+  .glass{background:var(--glass); border:1px solid var(--stroke); border-radius:var(--radius); box-shadow:var(--shadow); backdrop-filter: blur(12px)}
+
+  .hero{padding:80px 0 48px; position:relative; overflow:hidden}
+  .hero__grid{display:grid;gap:24px;grid-template-columns:1.2fr .8fr;align-items:stretch}
+  .headline{
+    font-family:'Abril Fatface', 'Poppins', serif;
+    font-size: clamp(34px, 7.2vw, 66px); line-height:1.03; margin:0 0 12px; font-weight:800;
+    background: linear-gradient(90deg,var(--neon2),var(--neon1),var(--neon3),var(--neon4));
+    background-size: 300% 100%; -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation: shine 8s ease-in-out infinite;
+  }
+  @keyframes shine{ 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+  .underline{ height:10px; width:min(320px,62%); border-radius:999px; background:linear-gradient(90deg,transparent, rgba(139,92,246,.7), transparent); filter:blur(6px); margin:6px 0 0; animation:pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse{50%{transform:scaleX(1.05)}}
+  .subtitle{color:var(--muted); font-size:clamp(14px, 3.8vw, 18px); margin-bottom:14px}
+  .hero__card{padding:16px}
+
+  .marquee{overflow:hidden; border-top:1px solid #151d39; border-bottom:1px solid #151d39; background:rgba(255,255,255,.03)}
+  .marquee__row{display:flex;gap:28px; padding:10px 0; animation:scroll 22s linear infinite}
+  .marquee__item{opacity:.85; white-space:nowrap; font-size:13px}
+  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){ .marquee__row{animation:none} }
+
+  .section{padding:56px 0}
+  .title{font-size:clamp(20px, 4.8vw, 28px);margin:0 0 8px}
+  .muted{color:var(--muted)}
+
+  .grid3{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card{padding:16px}
+  .card--tilt{transform-style:preserve-3d; perspective:600px; transition:transform .15s ease, box-shadow .2s}
+  .card--tilt:hover{transform: translateY(-4px) rotateX(2deg) rotateY(-2deg); box-shadow:0 18px 60px rgba(0,0,0,.18)}
+  .price__tag{font-size:clamp(22px, 5vw, 30px);font-weight:800;margin:4px 0 12px}
+  .chip{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;background:linear-gradient(90deg,var(--neon3),var(--neon1)); color:white; box-shadow:0 8px 24px rgba(244,114,182,.35)}
+  .popular{outline:2px solid rgba(139,92,246,.6)}
+
+  .refs{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch}
+  .mock{position:relative; border-radius:22px; padding:10px; background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04)); border:1px solid var(--stroke); box-shadow:var(--shadow)}
+  .phone{position:relative; margin:0 auto; width:100%; max-width:380px; aspect-ratio:9/19; border-radius:36px; background:#000; border:2px solid #222; box-shadow:inset 0 0 0 6px rgba(255,255,255,.06), 0 20px 60px rgba(0,0,0,.25); overflow:hidden;}
+  .phone::after{content:""; position:absolute; inset:0; background: linear-gradient(120deg, rgba(255,255,255,.18), transparent 35%); pointer-events:none; mix-blend-mode:screen; opacity:.5;}
+  .phone iframe{ width:100%; height:100%; border:0; background:#000 }
+  .note{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
+
+  .stars{color:var(--star); letter-spacing:1px}
+  .reviews-wrap{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+  .review-form .field{display:flex;flex-direction:column;margin-bottom:10px}
+  .input, .textarea, .select{background:rgba(255,255,255,.06); border:1px solid var(--stroke); color:var(--text); padding:12px;border-radius:10px; outline:none; font-size:16px}
+  .help{font-size:12px;color:var(--muted);margin-top:4px}
+  .form-row{display:flex;gap:8px;flex-wrap:wrap}
+  .review-list .item{border:1px solid var(--stroke);border-radius:14px;padding:12px;background:rgba(255,255,255,.06); display:grid;grid-template-columns:auto 1fr;gap:12px}
+  .avatar{width:42px;height:42px;border-radius:999px;display:flex;align-items:center;justify-content:center; background:linear-gradient(135deg,var(--neon2),var(--neon1));font-weight:800;color:#0b1022;box-shadow:0 6px 20px rgba(0,0,0,.15)}
+  .meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .meta .name{font-weight:700}
+  .meta .date{font-size:12px;color:var(--muted)}
+  .dist{display:grid;gap:6px}
+  .bar{display:flex;align-items:center;gap:8px}
+  .bar .label{width:18px;text-align:right;font-size:12px;color:var(--muted)}
+  .bar .track{flex:1; height:8px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden}
+  .bar .fill{height:100%; background:linear-gradient(90deg,var(--neon3),var(--neon1))}
+  .avg{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .avg .big{font-size:32px;font-weight:800}
+  .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,.06);font-size:12px}
+  .empty{color:var(--muted);font-size:14px}
+
+  /* Cupo semanal */
+  .quota{padding:36px 0}
+  .quota .wrap{display:grid;gap:10px}
+  .meter{position:relative; height:14px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid var(--stroke); overflow:hidden}
+  .meter__fill{height:100%; width:0%; background:linear-gradient(90deg,var(--neon2),var(--neon1)); transition:width .6s ease}
+  .quota .tiny{font-size:12px;color:var(--muted)}
+  .meter.low .meter__fill{ background:linear-gradient(90deg,#ef4444,#f59e0b) }
+
+  /* Sticky CTA mobile */
+  .mobile-cta{position:fixed; left:0; right:0; bottom:0; z-index:55; display:none; padding:10px; background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.5) 30%, rgba(0,0,0,.8)); backdrop-filter: blur(6px)}
+  .mobile-cta .wrap{display:flex;gap:8px}
+  @media (max-width:840px){ .mobile-cta{display:block} }
+
+  .wa-fab{position:fixed; right:14px; bottom:80px; border:none; border-radius:999px; padding:14px 18px; font-weight:800; cursor:pointer; color:#fff; background:linear-gradient(135deg,#25D366,#128C7E); box-shadow:0 14px 40px rgba(37,211,102,.45); z-index:60}
+  .wa-fab:hover{transform:translateY(-2px)}
+
+  @media (max-width:960px){ .hero__grid,.reviews-wrap,.refs{grid-template-columns:1fr} .nav__wrap{padding:10px 0} }
+  @media (max-width:420px){ .menu a{display:none} .btn{padding:12px 16px} }
+
+  :focus-visible{ outline:2px solid #22d3ee; outline-offset:2px; }
+
+  /* === FAQs — versión pro === */
+  .faqs{ display:grid; gap:12px; }
+  .faqs .item{
+    border:1px solid var(--stroke);
+    border-radius:16px;
+    background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+    overflow:hidden;
+    transition: box-shadow .25s ease, border-color .25s ease;
+  }
+  .faqs .item:hover{ box-shadow:0 16px 40px rgba(0,0,0,.18); border-color:rgba(139,92,246,.45) }
+  .faqs .item > button{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:14px 16px; background:transparent; border:0; color:var(--text); cursor:pointer; font-weight:700; letter-spacing:.2px;
+  }
+  .faqs .q-left{ display:flex; align-items:center; gap:10px; }
+  .faqs .q-icon{
+    width:28px; height:28px; border-radius:10px;
+    background:linear-gradient(135deg,var(--neon2),var(--neon1));
+    display:flex; align-items:center; justify-content:center;
+    color:#0b1022; font-weight:900; box-shadow:0 6px 20px rgba(139,92,246,.35);
+  }
+  .faqs .chev{ width:18px; height:18px; flex:0 0 18px; opacity:.9; transform:rotate(0deg); transition: transform .25s ease; }
+  .faqs .item.open .chev{ transform:rotate(180deg) }
+  .faqs .content{
+    padding:0 16px 0; max-height:0; overflow:hidden; opacity:.0;
+    transition: max-height .35s ease, opacity .25s ease, padding .25s ease;
+  }
+  .faqs .item.open .content{ padding:0 16px 14px; opacity:1; }
+  .faqs .content p{ margin:10px 0 0; color:var(--muted); line-height:1.6; }
+  .faqs .item > button:focus-visible{ outline:2px solid var(--neon2); outline-offset:2px; border-radius:6px; }
+</style>
+</head>
+<body>
+  <div class="waves" aria-hidden="true"></div>
+
+  <header class="nav" role="banner">
+    <div class="container nav__wrap">
+      <div class="brand" aria-label="Dedicapp">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 12px rgba(139,92,246,.6))" aria-hidden="true">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+          <rect x="8" y="8" width="48" height="48" rx="12" fill="url(#g)" opacity="0.9"/>
+          <path d="M20 34c6 6 12 6 24-8" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="24" cy="28" r="3" fill="#fff"/><circle cx="40" cy="24" r="3" fill="#fff"/>
+        </svg>
+        Dedicapp
+      </div>
+      <nav class="menu" role="navigation">
+        <a href="#planes">Planes</a>
+        <a href="#referencias">Referencias</a>
+        <a href="#reseñas">Reseñas</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#cupo">Cupo</a>
+        <button class="btn btn--neon magnet" onclick="whatsapp('contacto')">WhatsApp 💬</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <h1 class="headline">Páginas que enamoran, sorprenden y se comparten.</h1>
+        <div class="underline" aria-hidden="true"></div>
+        <p class="subtitle">Me mandas WhatsApp, me cuentas la idea y yo te armo una página “wow”. Rápido, bonito y con detalles que pegan directo al kokoro.</p>
+        <div class="hero__cta">
+          <button class="btn btn--neon magnet" onclick="whatsapp('contacto')">Quiero la mía</button>
+          <button class="btn btn--outline magnet" onclick="copyDemo()">Copiar link demo (Instagram)</button>
+        </div>
+        <div class="badges" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+          <span class="chip">Entrega express</span>
+          <span class="chip" style="background:linear-gradient(90deg,var(--neon2),var(--neon1));">Instagram ready</span>
+          <span class="chip" style="background:linear-gradient(90deg,var(--neon4),var(--neon1));">1 revisión incluida</span>
+        </div>
+      </div>
+      <div class="glass hero__card">
+        <h3>¿Cómo funciona?</h3>
+        <ol class="list" style="padding-left:18px;margin:10px 0;color:var(--text)">
+          <li>Elige un plan.</li>
+          <li>Escríbeme por WhatsApp con nombres, mensaje y fotos.</li>
+          <li>Te paso vista previa, ajustamos y ¡listo para compartir!</li>
+        </ol>
+        <div class="badges"><span class="badge">Soporte por WhatsApp</span><span class="badge">Pago seguro</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__row">
+      <div class="marquee__item">✨ Detalles para novixs</div>
+      <div class="marquee__item">🎂 Cumpleaños memorables</div>
+      <div class="marquee__item">👨‍👩‍👧‍👦 Familia & amistad</div>
+      <div class="marquee__item">🎵 Con música favorita</div>
+      <div class="marquee__item">📲 Perfecto para Instagram</div>
+      <div class="marquee__item">🔒 Sorpresas con bloqueo</div>
+      <div class="marquee__item">✨ Detalles para novixs</div>
+      <div class="marquee__item">🎂 Cumpleaños memorables</div>
+      <div class="marquee__item">👨‍👩‍👧‍👦 Familia & amistad</div>
+      <div class="marquee__item">🎵 Con música favorita</div>
+      <div class="marquee__item">📲 Perfecto para Instagram</div>
+      <div class="marquee__item">🔒 Sorpresas con bloqueo</div>
+    </div>
+  </div>
+
+  <section id="planes" class="section">
+    <div class="container">
+      <h2 class="title">Planes que convierten curiosos en mensajes 📲</h2>
+      <p class="muted">Pon el link en tu <b>Instagram</b> (bio + sticker en historias).</p>
+      <div class="grid3" style="margin-top:12px">
+        <div class="glass card card--tilt">
+          <span class="chip">Barata</span>
+          <h3 style="margin-top:6px">Mini</h3>
+          <div class="price__tag">$149 MXN</div>
+          <ul class="list" style="padding-left:18px;margin:8px 0;color:var(--text)">
+            <li>Página sencilla</li>
+            <li>Mensaje principal</li>
+            <li>Hasta 3 fotos</li>
+          </ul>
+          <button class="btn btn--neon magnet" data-track="wa-mini" onclick="whatsapp('mini')">Pedir por WhatsApp</button>
+        </div>
+
+        <div class="glass card card--tilt popular">
+          <span class="chip">La popular</span>
+          <h3 style="margin-top:6px">Intermedia</h3>
+          <div class="price__tag">$249 MXN</div>
+          <ul class="list" style="padding-left:18px;margin:8px 0;color:var(--text)">
+            <li>Mensaje + detalles</li>
+            <li>Botones ocultos (sorpresas)</li>
+            <li>Galería de fotos</li>
+          </ul>
+          <button class="btn btn--neon magnet" data-track="wa-intermedia" onclick="whatsapp('intermedia')">Sorprender con secretos</button>
+        </div>
+
+        <div class="glass card card--tilt">
+          <span class="chip">Full vibes</span>
+          <h3 style="margin-top:6px">Premium</h3>
+          <div class="price__tag">$349 MXN</div>
+          <ul class="list" style="padding-left:18px;margin:8px 0;color:var(--text)">
+            <li>Todo lo anterior</li>
+            <li>Música de su artista fav</li>
+            <li>Estilo glam ✨</li>
+          </ul>
+          <button class="btn btn--neon magnet" data-track="wa-premium" onclick="whatsapp('premium')">Con música 🔊</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="referencias" class="section">
+    <div class="container">
+      <h2 class="title">Referencias & Demo en vivo</h2>
+      <p class="muted">Así se ve una página real. En celular luce <b>perfecto</b> — y es ideal para compartir.</p>
+
+      <div class="refs">
+        <div class="mock">
+          <div class="phone">
+            <iframe title="Demo Dedicapp" src="https://prismatic-torte-1afc98.netlify.app" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+          </div>
+          <div class="note">Vista previa incrustada*. Si no carga, ábrela en la pestaña nueva.</div>
+        </div>
+
+        <div class="glass card">
+          <h3 style="margin-top:0">🎁 Demo: “Mayte & Junior H”</h3>
+          <p class="muted">Bloqueo secreto, tipografía bonita y glow elegante. Ideal para aniversarios, cumpleaños o detalles sorpresa.</p>
+          <div class="form-row" style="margin:8px 0 6px">
+            <a class="btn btn--neon magnet" data-track="demo-open" href="https://prismatic-torte-1afc98.netlify.app" target="_blank" rel="noopener noreferrer">Abrir demo completa</a>
+            <button class="btn btn--ghost magnet" data-track="wa-contacto" onclick="whatsapp('contacto')">Quiero una así</button>
+            <button class="btn btn--outline magnet" data-track="demo-copy" onclick="copyDemo()">Copiar link demo (Instagram)</button>
+          </div>
+          <ul class="list" style="padding-left:18px;margin:8px 0;color:var(--text)">
+            <li>Se comparte por link (WhatsApp, Messenger, etc.).</li>
+            <li><b>Instagram ready:</b> link en bio & sticker en historias.</li>
+            <li>Entrega rápida + 1 revisión incluida.</li>
+          </ul>
+          <p class="note">*Algunos sitios bloquean el “embebido”; por eso también te dejo el botón para abrirla completa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reseñas" class="section">
+    <div class="container">
+      <h2 class="title">Reseñas verificadas</h2>
+      <p class="muted">Tu opinión ayuda a que más gente confíe. Gracias por dejar tu referencia ⭐</p>
+
+      <div class="glass card">
+        <div class="controls">
+          <div class="avg">
+            <div class="big" id="avgScore">0.0</div>
+            <div>
+              <div class="stars" id="avgStars">★★★★★</div>
+              <div class="muted" id="reviewsCount">0 reseñas</div>
+            </div>
+          </div>
+          <span class="pill">✔︎ Público</span>
+          <label class="pill">Ordenar:
+            <select id="orderBy" class="select" style="height:28px;padding:4px 8px">
+              <option value="recent">Más recientes</option>
+              <option value="best">Mejor puntuación</option>
+            </select>
+          </label>
+        </div>
+        <div class="dist" id="distBars" aria-label="Distribución de calificaciones"></div>
+      </div>
+
+      <div class="reviews-wrap" style="margin-top:12px">
+        <div class="glass card review-form" aria-label="Formulario de reseña">
+          <h3 style="margin-top:0">Deja tu reseña</h3>
+          <div class="field">
+            <label for="revName">Tu nombre <span class="muted">(requerido)</span></label>
+            <input id="revName" class="input" type="text" placeholder="Ej. Valeria" required />
+          </div>
+          <div class="field">
+            <label for="revText">Tu referencia (min. 20 caracteres)</label>
+            <textarea id="revText" class="textarea" rows="4" placeholder="Cuéntame qué te gustó 👀" minlength="20" required></textarea>
+            <div class="help"><span id="charCount">0</span>/20</div>
+          </div>
+          <div class="field">
+            <label>Estrellas</label>
+            <div id="starPicker" aria-label="Calificación" role="radiogroup"></div>
+          </div>
+          <div class="form-row">
+            <button class="btn btn--neon magnet" id="btnAddReview">Enviar reseña</button>
+            <button class="btn btn--ghost magnet" id="btnClearReviews" title="Borrar reseñas guardadas">Limpiar (local)</button>
+          </div>
+          <p class="help">Tus reseñas se guardan en este dispositivo (no se envían a servidores).</p>
+        </div>
+
+        <div class="glass card review-list" aria-live="polite">
+          <h3 style="margin-top:0">Referencias</h3>
+          <div id="reviews"></div>
+          <button class="btn btn--ghost magnet" id="btnMore" style="margin-top:10px;display:none">Cargar más</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cupo" class="quota">
+    <div class="container">
+      <h2 class="title">Cupo de esta semana</h2>
+      <p class="muted">Trabajo con número limitado para cuidar la calidad. Si ves pocos lugares, escríbeme ya. 😉</p>
+      <div class="wrap">
+        <div class="meter" aria-label="Cupo semanal">
+          <div class="meter__fill" id="meterFill" style="width:0%"></div>
+        </div>
+        <div class="tiny">
+          <span id="quotaText">Quedan — de — lugares.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs — sección mejorada -->
+  <section id="faqs" class="section">
+    <div class="container">
+      <h2 class="title">Preguntas frecuentes</h2>
+      <div class="faqs" style="margin-top:12px">
+        
+        <div class="item">
+          <button type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-icon">?</span>
+              <span>¿Cuánto tardas en entregar?</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="content" aria-hidden="true">
+            <p>Normalmente en <b>24–48 horas</b> según el plan y los detalles. Te mando una vista previa para que des el OK.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <button type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-icon">✔</span>
+              <span>¿Qué incluye cada plan?</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="content" aria-hidden="true">
+            <p><b>Mini ($149):</b> página simple con mensaje y hasta 3 fotos.<br>
+               <b>Intermedia ($249):</b> + detalles y botones ocultos.<br>
+               <b>Premium ($349):</b> todo lo anterior + música del artista favorito.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <button type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-icon">IG</span>
+              <span>¿Puedo ponerlo en mi Instagram?</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="content" aria-hidden="true">
+            <p>Sí. Te paso el link <b>listo para tu bio</b> y puedes usar el <b>sticker de enlace</b> en tus historias.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <button type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-icon">📎</span>
+              <span>¿Cómo te paso las fotos y el texto?</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="content" aria-hidden="true">
+            <p>Por WhatsApp. Me mandas nombres, mensaje, fotos y si quieres, el link de la canción (YouTube o archivo).</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <button type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-icon">🛡</span>
+              <span>¿Hay garantía?</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="content" aria-hidden="true">
+            <p>Incluye <b>1 ajuste</b> sin costo. Si de plano no te encanta, te regreso el pago.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container glass card">
+      <h3>¿List@ para que te escriban?</h3>
+      <p class="muted">Dime el plan que te late y te mando opciones en chinga.</p>
+      <div class="form-row" style="margin-top:6px">
+        <button class="btn btn--neon magnet" data-track="wa-mini" onclick="whatsapp('mini')">Mini</button>
+        <button class="btn btn--neon magnet" data-track="wa-intermedia" onclick="whatsapp('intermedia')">Intermedia</button>
+        <button class="btn btn--neon magnet" data-track="wa-premium" onclick="whatsapp('premium')">Premium</button>
+        <button class="btn btn--outline magnet" data-track="wa-copy" onclick="copyWhatsapp()">Copiar mi WhatsApp (Instagram)</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="nav">
+    <div class="container nav__wrap" style="justify-content:space-between">
+      <span>© 2025 Dedicapp</span>
+      <span class="muted">Hecho con cariño,.</span>
+    </div>
+  </footer>
+
+  <div class="mobile-cta" role="region" aria-label="Acciones rápidas">
+    <div class="container wrap">
+      <button class="btn btn--neon magnet" style="flex:1" data-track="wa-contacto" onclick="whatsapp('contacto')">WhatsApp ahora</button>
+      <button class="btn btn--outline magnet" style="flex:1" data-track="demo-copy" onclick="copyDemo()">Copiar link demo</button>
+    </div>
+  </div>
+
+  <button class="wa-fab magnet" data-track="wa-contacto" onclick="whatsapp('contacto')" aria-label="Escribir por WhatsApp">WhatsApp</button>
+
+  <canvas id="confetti" style="position:fixed;inset:0;pointer-events:none;z-index:98"></canvas>
+
+<script>
+  /* ====== CONFIG ====== */
+  var numeroWhatsApp = "524771727833"; // <-- cámbialo
+  var demoURL = "https://prismatic-torte-1afc98.netlify.app";
+
+  /* ====== HELPERS ====== */
+  function $(s){ return document.querySelector(s); }
+  function esc(s){ s = s || ''; return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
+  function clamp(n,a,b){ return Math.max(a, Math.min(b, n)); }
+  function fmtDate(t){ var d=new Date(t); return d.toLocaleDateString('es-MX',{year:'numeric',month:'short',day:'numeric'}); }
+  function toast(msg){ var t=document.createElement('div'); t.textContent=msg; t.style.cssText='position:fixed;left:50%;bottom:100px;transform:translateX(-50%);background:rgba(0,0,0,.7);color:#fff;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);z-index:70'; document.body.appendChild(t); setTimeout(()=>t.remove(),1600); }
+
+  /* ====== THEME (auto dark) ====== */
+  function applyTheme(){ document.getElementById('metaThemeColor').setAttribute('content', getComputedStyle(document.documentElement).getPropertyValue('--themeColor').trim() || '#0b1022'); }
+  document.addEventListener('DOMContentLoaded', applyTheme);
+
+  /* ====== COPY ====== */
+  function copyDemo(){ navigator.clipboard.writeText(demoURL).then(()=>toast('Link de demo copiado 🔗')); track('demo-copy'); }
+  function copyWhatsapp(){ var w="https://wa.me/"+numeroWhatsApp; navigator.clipboard.writeText(w).then(()=>toast('Tu WhatsApp copiado 📲')); track('wa-copy'); }
+
+  /* ====== WHATSAPP ====== */
+  function whatsapp(plan){
+    var base="https://wa.me/"+numeroWhatsApp+"?text=";
+    var plantilla=(plan==='mini')?tplMini():(plan==='intermedia')?tplIntermedia():(plan==='premium')?tplPremium():tplContacto();
+    var url=base+encodeURIComponent(plantilla+"\n\nVisto en: "+location.href);
+    window.open(url,"_blank"); track('wa-'+(plan||'contacto'));
+    confettiBurst(innerWidth/2, innerHeight*0.2); // confetti feliz
+  }
+  function tplContacto(){ return ["¡Hola! 👋 Quiero una página dedicada.","","Plan: (Mini / Intermedia / Premium)","Para: ________","De: ________","Mensaje: ________","Tema: (Amor/Amistad/Familia)","Color (opcional): ________","Fotos: te las mando por aquí","Música (si Premium): link de YouTube o .mp3","","¿Tiempo de entrega y formas de pago?"].join("\n"); }
+  function tplMini(){ return ["¡Hola! 👋 Quiero el plan MINI ($99 MXN).","Para: ________  ·  De: ________","Mensaje: ________","Hasta 3 fotos: te las mando aquí","Tema: (Amor/Amistad/Familia)  ·  Color: ________","¿Precio final y entrega? 🙌"].join("\n"); }
+  function tplIntermedia(){ return ["¡Hola! 👋 Quiero el plan INTERMEDIA ($199 MXN).","Para: ________  ·  De: ________","Mensaje: ________","Fotos: te las mando aquí","Quiero botoncitos ocultos con sorpresas 😉","Tema: (Amor/Amistad/Familia)  ·  Color: ________","¿Precio y fecha de entrega? 🚀"].join("\n"); }
+  function tplPremium(){ return ["¡Hola! 👋 Quiero el plan PREMIUM ($299 MXN).","Para: ________  ·  De: ________","Mensaje: ________","Fotos: te las mando aquí","Música del artista favorito: (link de YouTube o .mp3)","Tema: (Amor/Amistad/Familia)  ·  Color: ________","¿Timeline y costo total? ✨"].join("\n"); }
+
+  /* ====== RESEÑAS ====== */
+  var reviewsKey='dedicapp_reviews_v2', PAGE_SIZE=5, state={orderBy:'recent',page:1};
+  function cargarReviews(){ try{ var raw=localStorage.getItem(reviewsKey); return raw?JSON.parse(raw):[] }catch(e){ return [] } }
+  function guardarReviews(arr){ try{ localStorage.setItem(reviewsKey, JSON.stringify(arr)); }catch(e){} }
+  function avatarInitial(n){ n=(n||'').trim(); return n?n[0].toUpperCase():'A'; }
+  function pintarEstrellas(s){ var f=Math.round(s), out=''; for(var i=1;i<=5;i++){ out+= (i<=f?'★':'☆'); } return out; }
+  function distFrom(revs){ var d=[0,0,0,0,0]; revs.forEach(r=>{ var s=Math.max(1,Math.min(5,+r.stars||0)); d[s-1]++; }); return d; }
+  function renderDist(d){ var total=d.reduce((a,b)=>a+b,0)||1, host=$('#distBars'); host.innerHTML=''; for(var i=5;i>=1;i--){ var idx=i-1, pct=Math.round((d[idx]/total)*100); var row=document.createElement('div'); row.className='bar'; row.innerHTML='<span class="label">'+i+'</span><div class="track"><div class="fill" style="width:'+pct+'%"></div></div><span class="label">'+pct+'%</span>'; host.appendChild(row); } }
+  function ordenar(arr,mode){ return (mode==='best')?arr.slice().sort((a,b)=>(b.stars-a.stars)||(b.t-a.t)):arr.slice().sort((a,b)=>b.t-a.t); }
+  function renderReviewsList(){
+    var data=ordenar(cargarReviews(), state.orderBy), cont=$('#reviews'), more=$('#btnMore'); cont.innerHTML='';
+    if(!data.length){ cont.innerHTML='<p class="empty">Aún no hay reseñas. ¡Sé la primera persona en opinar! 🌟</p>'; more.style.display='none'; }
+    var end=PAGE_SIZE*state.page; data.slice(0,end).forEach(function(r){
+      var item=document.createElement('div'); item.className='item'; var ini=avatarInitial(r.name);
+      item.innerHTML='<div class="avatar" aria-hidden="true">'+esc(ini)+'</div><div><div class="meta"><span class="name">'+esc(r.name||'Anónimo')+'</span><span class="stars" title="'+r.stars+' de 5">'+pintarEstrellas(r.stars)+'</span><span class="date">· '+fmtDate(r.t)+'</span></div><div class="text" style="margin-top:6px">'+esc(r.text||'')+'</div></div>';
+      cont.appendChild(item);
+    });
+    more.style.display=(data.length>end)?'inline-block':'none';
+    var avg=data.length?data.reduce((a,b)=>a+(+b.stars||0),0)/data.length:0;
+    $('#avgScore').textContent=avg.toFixed(1); $('#avgStars').innerHTML=pintarEstrellas(avg); $('#reviewsCount').textContent=data.length+(data.length===1?' reseña':' reseñas'); renderDist(distFrom(data));
+    try{ var ld=document.getElementById('ld-aggregate'); if(!ld){ ld=document.createElement('script'); ld.type='application/ld+json'; ld.id='ld-aggregate'; document.head.appendChild(ld); }
+      ld.textContent=JSON.stringify({"@context":"https://schema.org","@type":"Product","name":"Dedicapp — Páginas dedicadas","aggregateRating":{"@type":"AggregateRating","ratingValue":avg.toFixed(1),"reviewCount":data.length}});
+    }catch(e){}
+  }
+  function initStarPicker(){ var el=$('#starPicker'); for(var i=1;i<=5;i++){ var b=document.createElement('button'); b.type='button'; b.textContent='★'; b.setAttribute('data-v',i);
+      b.style.cssText='font-size:24px;margin-right:4px;background:transparent;border:1px solid var(--stroke);border-radius:8px;color:var(--star);cursor:pointer;width:44px;height:44px';
+      b.setAttribute('role','radio'); b.setAttribute('aria-checked', i===5?'true':'false');
+      b.addEventListener('click', function(e){ var v=parseInt(e.currentTarget.getAttribute('data-v'),10); el.setAttribute('data-score',String(v));
+        Array.prototype.forEach.call(el.children, function(ch,idx){ var active=(idx<v); ch.style.background=active?'rgba(255,255,255,.12)':'transparent'; ch.setAttribute('aria-checked', active?'true':'false'); });
+      }); el.appendChild(b);
+    } el.setAttribute('data-score','5'); Array.prototype.forEach.call(el.children, function(ch,idx){ ch.style.background=(idx<5)?'rgba(255,255,255,.12)':'transparent'; });
+  }
+  function addReview(){
+    var name=$('#revName').value.trim(), text=$('#revText').value.trim(), stars=parseInt($('#starPicker').getAttribute('data-score')||'5',10);
+    if(!name){ alert('Pon tu nombre, porfis.'); $('#revName').focus(); return; }
+    if(text.length<20){ alert('Tu reseña debe tener al menos 20 caracteres.'); $('#revText').focus(); return; }
+    stars=clamp(stars,1,5);
+    var arr=cargarReviews(); arr.push({name, text, stars, t:Date.now()}); guardarReviews(arr);
+    $('#revText').value=''; $('#revName').value=''; $('#charCount').textContent='0';
+    $('#starPicker').setAttribute('data-score','5'); Array.prototype.forEach.call($('#starPicker').children, function(ch,idx){ ch.style.background=(idx<5)?'rgba(255,255,255,.12)':'transparent'; ch.setAttribute('aria-checked',(idx<5)?'true':'false'); });
+    state.page=1; renderReviewsList(); toast('¡Gracias por tu reseña! 💖');
+  }
+  function clearReviews(){ if(confirm('¿Borrar reseñas guardadas en este dispositivo?')){ localStorage.removeItem(reviewsKey); state.page=1; renderReviewsList(); } }
+
+  /* ====== MINI-ANALYTICS ====== */
+  var STATS_KEY='dedicapp_stats';
+  function loadStats(){ try{ return JSON.parse(localStorage.getItem(STATS_KEY)||'{}'); }catch(e){ return {}; } }
+  function saveStats(d){ try{ localStorage.setItem(STATS_KEY, JSON.stringify(d)); }catch(e){} }
+  function track(ev){ var s=loadStats(); s[ev]=(s[ev]||0)+1; s.last=Date.now(); saveStats(s); updateQuotaFromStats(); }
+
+  /* ====== Cupo semanal ====== */
+  var QUOTA_TOTAL = 10; // Ajusta tus lugares por semana
+  var QUOTA_KEY = 'dedicapp_quota_week';
+  function weekId(){
+    var d=new Date(); d.setHours(0,0,0,0);
+    var onejan=new Date(d.getFullYear(),0,1);
+    var week=Math.ceil((((d - onejan) / 86400000) + onejan.getDay()+1)/7);
+    return d.getFullYear()+'-W'+week;
+  }
+  function ensureWeek(){
+    var w = weekId();
+    var stored = localStorage.getItem(QUOTA_KEY);
+    if(stored!==w){
+      localStorage.setItem(QUOTA_KEY, w);
+      localStorage.setItem('dedicapp_quota_used', '0');
+      localStorage.removeItem('dedicapp_quota_seeded');
+    }
+  }
+  function getUsed(){ return parseInt(localStorage.getItem('dedicapp_quota_used')||'0',10); }
+  function setUsed(v){ localStorage.setItem('dedicapp_quota_used', String(clamp(v,0,QUOTA_TOTAL))); }
+  function updateQuotaUI(){
+    var used = getUsed();
+    var left = Math.max(QUOTA_TOTAL - used, 0);
+    var pct  = (used/QUOTA_TOTAL)*100;
+    var fill = document.getElementById('meterFill');
+    var meter = fill.parentElement;
+    fill.style.width = pct + '%';
+    meter.classList.toggle('low', left <= 2); // cambia color cuando hay pocos
+    document.getElementById('quotaText').textContent = 'Quedan '+left+' de '+QUOTA_TOTAL+' lugares.';
+    if(left <= 2 && 'vibrate' in navigator){ navigator.vibrate(80); }
+  }
+  function updateQuotaFromStats(forceReset){
+    ensureWeek();
+    if(forceReset){ setUsed(0); updateQuotaUI(); return; }
+    var s = loadStats();
+    var clicks = (s['wa-mini']||0) + (s['wa-intermedia']||0) + (s['wa-premium']||0) + (s['wa-contacto']||0);
+    setUsed(Math.min(clicks, QUOTA_TOTAL));
+    updateQuotaUI();
+  }
+
+  /* ====== Confetti ====== */
+  var confettiCtx = (function(){ var c=document.getElementById('confetti'); var x=c.getContext('2d'); function rs(){ c.width=innerWidth; c.height=innerHeight; } rs(); addEventListener('resize', rs); return {c:c,x:x}; })();
+  var parts=[], confAnim;
+  function confettiBurst(cx, cy, amount){
+    var x=confettiCtx.x, c=confettiCtx.c; cancelAnimationFrame(confAnim); parts=[];
+    amount = amount || 140;
+    for(var i=0;i<amount;i++){
+      parts.push({x:cx,y:cy,r:Math.random()*6+2, vx:(Math.random()-0.5)*6, vy:(Math.random()*-6)-2, a:1, col:['#8b5cf6','#22d3ee','#f472b6','#22c55e'][i%4]});
+    }
+    (function animate(){
+      confAnim=requestAnimationFrame(animate);
+      x.clearRect(0,0,c.width,c.height);
+      var alive=false;
+      for(var i=0;i<parts.length;i++){ var p=parts[i]; p.vy+=0.15; p.x+=p.vx; p.y+=p.vy; p.a-=0.008;
+        if(p.a>0 && p.y<c.height+20){ alive=true; x.globalAlpha=Math.max(p.a,0); x.fillStyle=p.col; x.beginPath(); x.arc(p.x,p.y,p.r,0,Math.PI*2); x.fill(); } }
+      if(!alive){ cancelAnimationFrame(confAnim); x.clearRect(0,0,c.width,c.height); }
+    })();
+  }
+
+  /* ====== FAQs (toggle con altura dinámica + accesibilidad) ====== */
+  (function(){
+    function toggleItem(item){
+      const btn = item.querySelector('button');
+      const content = item.querySelector('.content');
+      const isOpen = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if(content){
+        if(isOpen){
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.opacity = '1';
+          content.setAttribute('aria-hidden','false');
+        }else{
+          content.style.maxHeight = '0px';
+          content.style.opacity = '0';
+          content.setAttribute('aria-hidden','true');
+        }
+      }
+    }
+
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest('.faqs .item > button'); if(!btn) return;
+      const item = btn.parentElement;
+      // Si quieres modo acordeón (solo una abierta), descomenta:
+      // document.querySelectorAll('.faqs .item.open').forEach(it => { if(it!==item) { it.classList.remove('open'); const c=it.querySelector('.content'); if(c){ c.style.maxHeight='0px'; c.style.opacity='0'; c.setAttribute('aria-hidden','true'); } it.querySelector('button')?.setAttribute('aria-expanded','false'); }});
+      toggleItem(item);
+    });
+
+    // Inicial: estado cerrado
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.faqs .item').forEach(it=>{
+        const content = it.querySelector('.content');
+        if(content){ content.style.maxHeight = '0px'; content.style.opacity='0'; content.setAttribute('aria-hidden','true'); }
+        const btn = it.querySelector('button'); if(btn){ btn.setAttribute('aria-expanded','false'); }
+      });
+    });
+
+    // Recalcular alturas si cambia viewport
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.faqs .item.open .content').forEach(c=>{
+        c.style.maxHeight = c.scrollHeight + 'px';
+      });
+    });
+  })();
+
+  /* ====== Aparición suave ====== */
+  document.addEventListener('DOMContentLoaded', function(){
+    // Reseñas
+    initStarPicker(); renderReviewsList();
+    document.getElementById('btnAddReview').addEventListener('click', addReview);
+    document.getElementById('btnClearReviews').addEventListener('click', clearReviews);
+    document.getElementById('btnMore').addEventListener('click', function(){ state.page++; renderReviewsList(); });
+    document.getElementById('orderBy').addEventListener('change', function(e){ state.orderBy=e.target.value; state.page=1; renderReviewsList(); });
+    document.getElementById('revText').addEventListener('input', function(){ document.getElementById('charCount').textContent=this.value.length; });
+
+    // Tracking
+    document.body.addEventListener('click', function(e){ var t=e.target.closest('[data-track]'); if(!t) return; track(t.getAttribute('data-track')); });
+
+    // Aparición suave en secciones
+    var obs=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.style.transition="all .6s ease"; e.target.style.transform="translateY(0)"; e.target.style.opacity="1"; obs.unobserve(e.target); } }); }, {threshold:.12});
+    document.querySelectorAll('.section .glass, .section .card, .grid3 > *').forEach(function(el){ el.style.opacity="0"; el.style.transform="translateY(16px)"; obs.observe(el); });
+
+    // Cupo
+    ensureWeek();
+    if(!localStorage.getItem('dedicapp_quota_seeded')){
+      setUsed(Math.floor(Math.random()*3)); localStorage.setItem('dedicapp_quota_seeded','1');
+    }
+    updateQuotaFromStats();
+
+    // Confetti en botones WhatsApp
+    document.body.addEventListener('click', function(e){
+      var t=e.target.closest('button,a'); if(!t) return;
+      var txt=(t.textContent||'').toLowerCase();
+      if(txt.includes('whatsapp')){ confettiBurst(innerWidth/2, innerHeight*0.2); }
+    });
+  });
+</script>
+</body>
+</html>
